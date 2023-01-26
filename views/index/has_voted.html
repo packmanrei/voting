@@ -1,0 +1,23 @@
+{{define "main"}}
+    <ul>
+        <li><div class="vote_poster">投稿者：{{.posterAccount.Username}}</div></li>
+        <li><div class="vote_title">{{.voting.Title}}</div></li>
+        <li><div class="vote_content">{{.voting.Content}}</div></li>
+        <li><div class="total_votes"><label class="condition">投票条件：【性別】{{.textSex}}&nbsp;【年齢】{{.textAge}}{{.sex}}</label>{{.total}}票</div></li>
+        {{range .votingResults}}
+            <form method="post">
+                <div class="vote_choices">
+                    <li><div class="voted_box"><div class="votes_text">{{.Choice}}</div><div class="votes">{{.Vote}}票</div></div><div class="result">{{.Result}}%</div></li>
+                </div>
+            </form>
+        {{end}}
+    </ul>
+    
+    <script>
+        document
+        .querySelectorAll('form button')
+        .forEach((btn, i) => {
+            btn.value = i + 1;
+        });
+    </script>
+{{end}}

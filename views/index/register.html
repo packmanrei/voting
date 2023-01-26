@@ -1,0 +1,9 @@
+{{define "account"}}
+    <h2 class="account_title">新規登録</h2>
+    <div class="error_message">{{.errMessage}}</div>
+    <form action="/register" method="post">
+        <input type="email" name="email" class="input_email" pattern=".+@(.+\.)+.+" placeholder="Eメール"/>
+        <br/>
+        <input type="submit" value="Done" class="submit"/>
+    </form>
+{{end}}

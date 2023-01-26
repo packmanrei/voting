@@ -1,0 +1,30 @@
+{{define "account"}}
+<button onclick="location.href='/account-settings/delete-account'" class="delete_account_button">退会</button>
+    <h2 class="account_title">アカウント設定</h2>
+    <table class="table" border="1">
+        <tr>
+            <td class="first_column">ユーザー名</td>
+            <td class="second_column">{{.account.Username}}</td>
+            <td class="third_column"><button onclick="location.href='account-settings/username'" class="change_button">変更</button></td>
+        </tr>
+        <tr>
+            <td class="first_column">Eメール</td>
+            <td class="second_column">{{.account.Email}}</td>
+            <td class="third_column"><button onclick="location.href='account-settings/email'" class="change_button">変更</button></td>
+        </tr>
+        <tr>
+            <td class="first_column">性別</td>
+            <td class="second_column">{{.account.Sex}}</td>
+        </tr>
+        <tr>
+            <td class="first_column">年齢</td>
+            <td class="second_column">{{.account.Age}}歳</td>
+        </tr>
+        <tr>
+            <td class="first_column">パスワード</td>
+            <td class="second_column">**********</td>
+            <td class="third_column"><button onclick="location.href='account-settings/password'" class="change_button">変更</button></td>
+        </tr>
+    </table>
+    <br/><br/>
+{{end}}

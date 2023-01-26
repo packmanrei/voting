@@ -1,0 +1,18 @@
+{{define "account"}}
+    <h2 class="account_title">アカウント情報設定</h2>
+    <form action={{.url}} method="post">
+        <input type="text" name="username" placeholder="ユーザー名" class="input"/>
+        <br/><br/>
+        <div class="radio">
+            <input type="radio" name="sex" value="man" class="sex_radio" id="man" checked=""><label for="man" class="radio_label">男性</label>
+            <input type="radio" name="sex" value="woman" class="sex_radio" id="woman"><label for="woman" class="radio_label">女性</label>
+        </div>
+        <input type="number" name="age" min="0" max="150" class="input_age"/><label class="age">歳</label>
+        <br/><br/>
+        <input type="password" name="password" placeholder="パスワード" class="input"/>
+        <br/><br/>
+        <input type="password" name="password_again" placeholder="もう一度" class="input"/>
+        <input type="hidden" name="email" value={{.email}}/>
+        <input type="submit" value="確定" class="submit"/>
+    </form>
+{{end}}

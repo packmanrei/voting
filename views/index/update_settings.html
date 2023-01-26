@@ -1,0 +1,8 @@
+{{define "account"}}
+    <h2 class="update_settings_title">{{.message}}</h2>
+    <div class="error_message">{{.errMessage}}</div>
+    <form action={{.url}} method="post">
+        <input type="text" class="input" name="input"/>
+        <button class="submit">変更</button>
+    </form>
+{{end}}

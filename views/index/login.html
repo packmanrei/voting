@@ -1,0 +1,11 @@
+{{define "account"}}
+    <h2 class="account_title">ログイン</h2>
+    <div class="error_message">{{.errMessage}}</div>
+    <div class="error_message">{{.needLoginMessage}}</div>
+    <form action="/login" method="post">
+        <input type="email" name="email" pattern=".+@(.+\.)+.+" placeholder="Eメール" class="input_email"/>
+        <input type="password" name="password" placeholder="パスワード" class="input_password"/>
+        <input type="submit" value="Login" class="submit"/>
+    </form>
+    
+{{end}}

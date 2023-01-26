@@ -1,0 +1,7 @@
+{{define "main"}}
+    <ul>
+        {{range .votings}}
+            <li><button onclick="location.href='/voting/{{.ID}}'" class="voting_button">Title: {{.Title}}</button></li>
+        {{end}}
+    </ul>
+{{end}}

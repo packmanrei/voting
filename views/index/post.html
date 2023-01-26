@@ -1,0 +1,43 @@
+{{define "main"}}
+    <div class="post">
+        <form action="/post" method="post">
+            <div class="radio">
+                <input type="radio" name="room" value="free" class="room_radio" id="free" checked=""><label for="free" class="radio_label">自由</label>
+                <input type="radio" name="room" value="family" class="room_radio" id="family"><label for="family" class="radio_label">家族</label>
+                <input type="radio" name="room" value="work" class="room_radio" id="work"><label for="work" class="radio_label">仕事</label>
+                <input type="radio" name="room" value="hobby" class="room_radio" id="hobby"><label for="hobby" class="radio_label">趣味</label>
+                <input type="radio" name="room" value="animal" class="room_radio" id="animal"><label for="animal" class="radio_label">動物</label>
+                <input type="radio" name="room" value="love" class="room_radio" id="love"><label for="love" class="radio_label">恋愛</label>
+            </div>
+            <br/>
+            <input type="text" name="title" class="post_title" placeholder="タイトル"/>
+            <br/>
+            <textarea name="content" placeholder="内容を入力してください" class="post_content"></textarea>
+            <br/>
+            <button type="button" class="add_choice_button" onclick="addChoice()">選択肢を追加</button>
+            <br/>
+            <div class="choice_box">
+                <input type="text" name="choice" class="post_choice" placeholder="選択肢1"/><br/>
+                <input type="text" name="choice" class="post_choice" placeholder="選択肢2"/><br/>
+            </div>
+            <button type="button" class="post_submit" onclick="callConditions()">条件設定</button>
+            <div class="conditions">
+                <div class="radio">
+                    <input type="radio" name="sex" value="man" class="sex_radio" id="man"><label for="man" class="radio_label">男性のみ</label>
+                    <input type="radio" name="sex" value="woman" class="sex_radio" id="woman"><label for="woman" class="radio_label">女性のみ</label>
+                    <input type="radio" name="sex" value="both" class="sex_radio" id="both" checked=""><label for="both" class="radio_label">指定なし</label>
+                </div>
+                <input type="number" name="age_num" min="0" max="150" class="input_age"/><label class="age">歳</label>
+                <div class="radio">
+                    <input type="radio" name="age" value="more" class="sex_radio" id="more"><label for="more" class="radio_label">以上</label>
+                    <input type="radio" name="age" value="less" class="sex_radio" id="less"><label for="less" class="radio_label">以下</label>
+                    <input type="radio" name="age" value="all" class="sex_radio" id="all" checked=""><label for="all" class="radio_label">指定なし</label>
+                </div>
+            </div>
+            <script>
+                document.querySelector('.conditions').style.display ="none";
+            </script>
+            <input type="submit" value="投稿" class="post_submit"/>
+        </form>
+    </div>
+{{end}}

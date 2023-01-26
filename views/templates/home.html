@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <html lang="ja">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vot!ng</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.png">
+    <script type="text/javascript" src="/main.js"></script>
+</head>
+<body>
+   <header>{{template "header"}}</header>
+    <div class="wrap">
+        <div id="room">
+            {{template "rooms"}}
+        </div>
+        <div id="main">
+            {{template "main" .}}
+        </div>
+        <div id="post">
+            <button onclick="location.href='/post'" class="post_button">投稿</button>
+        </div>
+    </div>
+</body>
+</html>
