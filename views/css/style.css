@@ -269,9 +269,11 @@ button:hover{
 }
 
 .vote_content{
-    font-size: 40px;
+    font-size: 25px;
     text-align: center;
     padding-bottom: 20px;
+    width: 80%;
+    margin: auto;
 }
 
 .vote_choices{
