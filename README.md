@@ -38,13 +38,11 @@ Vot!ngは**投票Webアプリケーション**です。<br/>
 ## 環境・ツール・言語
 - Mac OS
 - Visual Studio Code
-- Microsoft Azure
+- Google Cloud Platform
 - TablePlus
 - Go 1.19
   - Gin
   - GORM
-  - sessions
-  - multitemplate
 - HTML5
 - CSS
 - JavaScript
