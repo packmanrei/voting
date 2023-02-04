@@ -1,20 +1,24 @@
 package db
 
 import (
+	"context"
 	"fmt"
 	"log"
+	"net"
 
-	"gorm.io/driver/sqlserver"
+	"cloud.google.com/go/cloudsqlconn"
+	gsd "github.com/go-sql-driver/mysql"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
+// Settings for CloudSQL
 const (
-	DB       = "test.db"
-	server   = "votingserver.database.windows.net"
-	port     = 1433
-	user     = "packmanrei"
-	password = "******"
-	database = "votingDB"
+	dbUser                 = "packmanrei"
+	dbPwd                  = "Reiand0123"
+	dbName                 = "voting-db"
+	instanceConnectionName = "voting0195:asia-northeast1:voting-instance"
+	usePrivate             = ""
 )
 
 type Account struct {
@@ -58,16 +62,27 @@ type Contact struct {
 }
 
 func init() {
-	db := openDB()
+	db := OpenDB()
 	db.AutoMigrate(&Account{}, &Voting{}, &Condition{}, &Contact{})
 }
 
-func openDB() *gorm.DB {
+func OpenDB() *gorm.DB {
 
-	connString := fmt.Sprintf("server=%s;user id=%s;password=%s;port=%d;database=%s;",
-		server, user, password, port, database)
-	db, err := gorm.Open(sqlserver.Open(connString), &gorm.Config{})
+	d, err := cloudsqlconn.NewDialer(context.Background())
+	CheckError(err)
+	var opts []cloudsqlconn.DialOption
+	if usePrivate != "" {
+		opts = append(opts, cloudsqlconn.WithPrivateIP())
+	}
+	gsd.RegisterDialContext("cloudsqlconn",
+		func(ctx context.Context, addr string) (net.Conn, error) {
+			return d.Dial(ctx, instanceConnectionName, opts...)
+		})
 
+	dbURI := fmt.Sprintf("%s:%s@cloudsqlconn(localhost:3306)/%s?parseTime=true",
+		dbUser, dbPwd, dbName)
+
+	db, err := gorm.Open(mysql.Open(dbURI), &gorm.Config{})
 	CheckError(err)
 	return db
 }
