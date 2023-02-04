@@ -15,7 +15,7 @@ import (
 // Settings for CloudSQL
 const (
 	dbUser                 = "packmanrei"
-	dbPwd                  = "Reiand0123"
+	dbPwd                  = "**********"
 	dbName                 = "voting-db"
 	instanceConnectionName = "voting0195:asia-northeast1:voting-instance"
 	usePrivate             = ""
