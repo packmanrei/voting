@@ -39,6 +39,7 @@ Vot!ngは**投票Webアプリケーション**です。<br/>
 - Mac OS
 - Visual Studio Code
 - Google Cloud Platform
+- Cloud SQL
 - TablePlus
 - Go 1.19
   - Gin
