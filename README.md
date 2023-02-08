@@ -1,6 +1,9 @@
 # Vot!ng
 ## URL
 https://voting0195.an.r.appspot.com/<br/>
+### サンプルユーザー
+Email:  user@sample.com<br/>
+Pass:   sample<br/>
 ## 概要
 Vot!ngは**投票Webアプリケーション**です。<br/>
 ユーザーは大きく分けて**投稿**と**投票**の二つのアクションが可能です。<br/>
