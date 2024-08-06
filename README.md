@@ -1,6 +1,6 @@
 # Vot!ng
 ## URL
-こちらのアプリはすでに停止済みです<br/>
+こちらのアプリは停止済みです<br/>
 https://voting0195.an.r.appspot.com/<br/>
 ### サンプルユーザー
 Email:  user@sample.com<br/>
